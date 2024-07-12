@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Header from "./components/Header";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 const App = () => {
   const Recipes = useQuery({
@@ -18,7 +19,17 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Grid templateAreas={`"header header" "asid main"`}>
+        <GridItem area="header">
+          <Header />
+        </GridItem>
+        <GridItem bg="green" area="asid">
+          asid
+        </GridItem>
+        <GridItem bg="coral" area="main">
+          main
+        </GridItem>
+      </Grid>
     </>
   );
 };
