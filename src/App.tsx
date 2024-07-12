@@ -1,5 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import Header from "./components/Header";
 
 const App = () => {
   const Recipes = useQuery({
@@ -15,7 +16,11 @@ const App = () => {
   });
   console.log(Recipes.data);
 
-  return <div>app</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default App;
