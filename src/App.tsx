@@ -1,4 +1,8 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Checkbox,
   CheckboxGroup,
@@ -6,6 +10,7 @@ import {
   GridItem,
   SimpleGrid,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -13,6 +18,7 @@ import Header from "./components/Header";
 import FoodCard from "./components/main/FoodCard";
 import db from "./fakeDb.json";
 import Cuisines from "./data/Cuisines";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 interface Data {
   number: number;
@@ -51,13 +57,25 @@ const App = () => {
           <Header />
         </GridItem>
         <GridItem area="asid">
-          <CheckboxGroup colorScheme="green">
-            <Stack>
-              {Cuisines.map((C) => (
-                <Checkbox value={C.name}>{C.name}</Checkbox>
-              ))}
-            </Stack>
-          </CheckboxGroup>
+          <Accordion allowMultiple>
+            <AccordionItem>
+              <AccordionButton>
+                <Text as="span">Cuisines</Text>
+                <RiArrowDownSLine />
+              </AccordionButton>
+              <AccordionPanel height="45vh" overflowY="scroll">
+                <CheckboxGroup colorScheme="green">
+                  <Stack>
+                    {Cuisines.map((C) => (
+                      <Checkbox inlineSize={1} value={C.name}>
+                        {C.name}
+                      </Checkbox>
+                    ))}
+                  </Stack>
+                </CheckboxGroup>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
         </GridItem>
         <GridItem bg="coral" area="main">
           <SimpleGrid minChildWidth="250px" spacing={5}>
