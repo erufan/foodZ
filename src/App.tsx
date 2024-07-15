@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Header from "./components/Header";
@@ -45,7 +45,11 @@ const App = () => {
           asid
         </GridItem>
         <GridItem bg="coral" area="main">
-          <FoodCard image={data[0].image} />
+          <SimpleGrid minChildWidth="150px" spacing={5}>
+            {data.map((d) => (
+              <FoodCard image={d.image} />
+            ))}
+          </SimpleGrid>
         </GridItem>
       </Grid>
     </>
