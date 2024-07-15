@@ -1,18 +1,9 @@
-import axios from "axios";
+import { Grid, GridItem } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import Header from "./components/Header";
+import FoodCard from "./components/main/FoodCard";
 import db from "./fakeDb.json";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-  Box,
-  Heading,
-} from "@chakra-ui/react";
 
 interface Data {
   number: number;
@@ -43,7 +34,7 @@ const App = () => {
         })
         .then((res) => res.data),
   });
-  const data: Data = db.json;
+  const data = db.json.results;
   return (
     <>
       <Grid templateAreas={`"header header" "asid main"`}>
@@ -54,27 +45,7 @@ const App = () => {
           asid
         </GridItem>
         <GridItem bg="coral" area="main">
-          <Card>
-            <CardHeader>
-              <Image
-                src={data.results[0].image}
-                borderRadius="50%"
-                width="250px"
-                height="250px"
-              />
-            </CardHeader>
-            <CardBody>
-              <Heading>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              </Heading>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt eos fugiat tenetur ducimus fugit ipsa eveniet dicta,
-                inventore illum dolor? Repellat quisquam velit illum vitae
-                nesciunt omnis maxime accusantium consequuntur!
-              </Text>
-            </CardBody>
-          </Card>
+          <FoodCard image={data[0].image} />
         </GridItem>
       </Grid>
     </>
