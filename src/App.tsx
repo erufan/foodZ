@@ -48,7 +48,7 @@ const App = () => {
         <GridItem bg="coral" area="main">
           <SimpleGrid minChildWidth="250px" spacing={5}>
             {data.map((d) => (
-              <FoodCard image={d.image} title={d.title} />
+              <FoodCard image={d.image} title={d.title} key={d.id} />
             ))}
           </SimpleGrid>
         </GridItem>

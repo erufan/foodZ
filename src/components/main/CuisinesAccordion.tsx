@@ -8,7 +8,12 @@ const CuisinesAccordion = () => {
       <CheckboxGroup colorScheme="green">
         <Stack>
           {Cuisines.map((C) => (
-            <Checkbox inlineSize={1} value={C.name}>
+            <Checkbox
+              inlineSize={1}
+              value={C.name}
+              onClick={() => console.log("hi")}
+              key={C.name}
+            >
               {C.name}
             </Checkbox>
           ))}
