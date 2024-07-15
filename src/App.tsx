@@ -1,9 +1,18 @@
-import { Box, Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
+import {
+  Box,
+  Checkbox,
+  CheckboxGroup,
+  Grid,
+  GridItem,
+  SimpleGrid,
+  Stack,
+} from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Header from "./components/Header";
 import FoodCard from "./components/main/FoodCard";
 import db from "./fakeDb.json";
+import Cuisines from "./data/Cuisines";
 
 interface Data {
   number: number;
@@ -41,8 +50,14 @@ const App = () => {
         <GridItem area="header">
           <Header />
         </GridItem>
-        <GridItem bg="green" area="asid">
-          asid
+        <GridItem area="asid">
+          <CheckboxGroup colorScheme="green">
+            <Stack>
+              {Cuisines.map((C) => (
+                <Checkbox value={C.name}>{C.name}</Checkbox>
+              ))}
+            </Stack>
+          </CheckboxGroup>
         </GridItem>
         <GridItem bg="coral" area="main">
           <SimpleGrid minChildWidth="250px" spacing={5}>
