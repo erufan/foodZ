@@ -1,17 +1,12 @@
-import {
-  HStack,
-  Link,
-  InputGroup,
-  InputLeftAddon,
-  Input,
-} from "@chakra-ui/react";
+import { HStack, InputGroup, InputLeftAddon, Input } from "@chakra-ui/react";
 import { CiSearch } from "react-icons/ci";
 import { GiSushis } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <HStack justify="space-around">
-      <Link>
+      <Link to="/">
         <GiSushis size={45} color="red" />
       </Link>
       <InputGroup width="auto">
@@ -20,7 +15,7 @@ const Header = () => {
         </InputLeftAddon>
         <Input type="text" placeholder="search..." />
       </InputGroup>
-      <Link>Home</Link>
+      <Link to="/recipes">Recipes</Link> <Link to="/">Home</Link>
     </HStack>
   );
 };

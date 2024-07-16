@@ -1,10 +1,9 @@
 import { Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Header from "./components/Header";
-import CuisinesAccordion from "./components/main/CuisinesAccordion";
-import FoodCard from "./components/main/FoodCard";
-import db from "./fakeDb.json";
+import db from "../fakeDb.json";
+import CuisinesAccordion from "../components/main/CuisinesAccordion";
+import FoodCard from "../components/main/FoodCard";
 
 interface Data {
   number: number;
@@ -17,7 +16,7 @@ interface Foods {
   title: string;
 }
 
-const App = () => {
+const RecipesPage = () => {
   const Recipes = useQuery<Data>({
     queryKey: ["foods"],
     staleTime: Infinity,
@@ -38,10 +37,7 @@ const App = () => {
   const data = db.json.results;
   return (
     <>
-      <Grid templateAreas={`"header header" "asid main"`}>
-        <GridItem area="header">
-          <Header />
-        </GridItem>
+      <Grid templateAreas={`"asid main"`}>
         <GridItem area="asid">
           <CuisinesAccordion />
         </GridItem>
@@ -57,4 +53,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default RecipesPage;
