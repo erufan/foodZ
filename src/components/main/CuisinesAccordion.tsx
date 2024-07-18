@@ -1,59 +1,31 @@
 import Accordion from "../ui/Accordion";
 import { CheckboxGroup, Stack, Checkbox } from "@chakra-ui/react";
 import Cuisines from "../../data/Cuisines";
-import { useSearchParams } from "react-router-dom";
+import cuisineParamsUtils from "../../utils/cuisineParamsUtils";
 
 const CuisinesAccordion = () => {
-  const [params, setParams] = useSearchParams();
+  const {
+    createCuisines,
+    thereISNoCuisines,
+    cuisinesHasTheregion,
+    isFirstTheRegion,
+    isAloneRegion,
+    removeCuisines,
+    addTheRegion,
+  } = cuisineParamsUtils();
 
-  const cuisinesHandler = (c: { name: string }) => {
-    const thereISNoCuisines = function () {
-      return !params.get("Cuisines");
-    };
-    const cuisinesHasTheregion = function () {
-      return params.get("Cuisines")?.search(c.name) !== -1;
-    };
-    const addTheRegion = function () {
-      return setParams({
-        ...params,
-        Cuisines: params.get("Cuisines") + "," + c.name,
-      });
-    };
-    const isFirstTheRegion = function () {
-      return params.get("Cuisines")?.indexOf(c.name) == 0;
-    };
-    const isAloneRegion = function () {
-      return params.get("Cuisines")?.search(",") == -1;
-    };
-
-    const remove = function (type: "first" | "notFirst" | "removeCuisines") {
-      if (type === "first")
-        return setParams({
-          ...params,
-          Cuisines: params.get("Cuisines")?.replace(c.name + ",", ""),
-        });
-      if (type === "notFirst")
-        return setParams({
-          ...params,
-          Cuisines: params.get("Cuisines")?.replace("," + c.name, ""),
-        });
-      if (type === "removeCuisines")
-        return setParams({
-          ...params,
-        });
-    };
-
+  const cuisinesHandler = (name: string) => {
     if (thereISNoCuisines()) {
-      return setParams({ ...params, Cuisines: c.name });
+      return createCuisines(name);
     } else {
-      if (cuisinesHasTheregion()) {
-        isFirstTheRegion()
+      if (cuisinesHasTheregion(name)) {
+        isFirstTheRegion(name)
           ? isAloneRegion()
-            ? remove("removeCuisines")
-            : remove("first")
-          : remove("notFirst");
+            ? removeCuisines(name, "removeCuisines")
+            : removeCuisines(name, "first")
+          : removeCuisines(name, "notFirst");
       } else {
-        addTheRegion();
+        addTheRegion(name);
       }
     }
   };
@@ -67,7 +39,7 @@ const CuisinesAccordion = () => {
               inlineSize={1}
               value={c.name}
               key={c.name}
-              onChange={() => cuisinesHandler(c)}
+              onChange={() => cuisinesHandler(c.name)}
             >
               {c.name}
             </Checkbox>
