@@ -8,11 +8,11 @@ const RecipesPage = () => {
 
   return (
     <>
-      <Grid templateAreas={`"asid main"`}>
-        <GridItem area="asid">
+      <Grid templateAreas={`"asid main main main main main main"`} paddingY={5}>
+        <GridItem area="asid" paddingX={3}>
           <CuisinesAccordion />
         </GridItem>
-        <GridItem bg="coral" area="main">
+        <GridItem area="main">
           <SimpleGrid minChildWidth="250px" spacing={5}>
             {data?.results.map((d) => (
               <FoodCard image={d.image} title={d.title} key={d.id} />

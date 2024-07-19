@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <HStack justify="space-around">
+    <HStack justify="space-around" padding={5}>
       <Link to="/">
         <GiSushis size={45} color="red" />
       </Link>

@@ -7,11 +7,22 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { transform } from "framer-motion";
 
 const FoodCard = ({ image, title }: { image: string; title: string }) => {
   return (
     <>
-      <Card display="flex" justifyItems="end">
+      <Card
+        display="flex"
+        justifyItems="end"
+        transition="all 0.07s"
+        cursor="pointer"
+        _hover={{
+          transform: "scale(1.01)",
+          boxShadow:
+            "0 1px 3px 0 rgba(144, 208, 68, 1),2px 1px 2px 0 rgba(221, 160, 221, 0.50)",
+        }}
+      >
         <CardHeader>
           <Image
             src={image}
