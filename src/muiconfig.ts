@@ -1,6 +1,21 @@
-import { createTheme } from "@mui/material";
+import { createTheme, PaletteOptions } from "@mui/material";
+import { TypographyOptions } from "@mui/material/styles/createTypography";
 
-const typography = {
+const palette: PaletteOptions = {
+  primary: {
+    main: "#E7FAFE",
+  },
+
+  secondary: {
+    main: "#fff",
+  },
+
+  info: {
+    main: "#000",
+  },
+};
+
+const typography: TypographyOptions = {
   fontFamily: [
     "inter",
     "-apple-system",
@@ -16,6 +31,7 @@ const typography = {
 };
 
 const muiTheme = createTheme({
+  palette,
   typography,
 });
 
