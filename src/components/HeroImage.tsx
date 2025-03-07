@@ -52,7 +52,7 @@ const HeroImage = () => {
             Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqut enim ad minim
           </Typography>
-          <Stack direction="row" spacing={2} marginBottom="6.4rem">
+          <Stack spacing={2} marginBottom="6.4rem">
             <Button variant="contained">
               <TimerIcon />
               30 Minutes
@@ -62,8 +62,8 @@ const HeroImage = () => {
               Chicken
             </Button>
           </Stack>
-          <Stack direction="row" spacing={15}>
-            <Stack direction="row" spacing={3}>
+          <Stack spacing={15}>
+            <Stack spacing={3}>
               <Avatar
                 alt="Remy Sharp"
                 src={AvatarImage}

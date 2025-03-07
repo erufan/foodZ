@@ -47,15 +47,12 @@ const Card = () => {
         </Typography>
       </Box>
       <Box sx={{ marginTop: "1.4rem" }}>
-        <Stack direction="row" sx={{ alignItems: "center" }}>
-          <Stack direction="row" sx={{ alignItems: "center" }}>
+        <Stack sx={{ alignItems: "center" }}>
+          <Stack sx={{ alignItems: "center" }}>
             <TimerIcon />
             <Typography variant="subtitle1">30 Minutes</Typography>
           </Stack>
-          <Stack
-            direction="row"
-            sx={{ alignItems: "center", marginLeft: "1.5rem" }}
-          >
+          <Stack sx={{ alignItems: "center", marginLeft: "1.5rem" }}>
             <RestaurantIcon />
             <Typography variant="subtitle1">snack</Typography>
           </Stack>
