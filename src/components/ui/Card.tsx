@@ -49,13 +49,13 @@ const Card = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <TimerIcon />
-            <Typography>30 Minutes</Typography>
+            <Typography variant="subtitle1">30 Minutes</Typography>
           </Box>
           <Box
             sx={{ display: "flex", alignItems: "center", marginLeft: "1.5rem" }}
           >
             <RestaurantIcon />
-            <Typography>snack</Typography>
+            <Typography variant="subtitle1">snack</Typography>
           </Box>
         </Box>
       </Box>
