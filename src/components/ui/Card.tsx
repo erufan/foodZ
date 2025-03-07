@@ -12,15 +12,32 @@ import Typography from "@mui/material/Typography/Typography";
 const Card = () => {
   return (
     // width and height are temporary
-    <Paper elevation={1} component="article" sx={{ width: 400, height: 434 }}>
-      <Box>
-        <img src={imgSrc} alt="" className="card_banner" />
+    <Paper
+      elevation={1}
+      component="article"
+      sx={{
+        width: 400,
+        height: 434,
+        padding: "1rem 1rem 0 1rem",
+      }}
+    >
+      <Box component="header">
         <Badge
           badgeContent={<FavoriteIcon sx={{ color: " #FF6363" }} />}
-          color="info"
-        />
-        {/* <Badge badgeContent={<FavoriteIcon sx={{ color: " #DBE2E5" }} />} /> */}
+          color="secondary"
+          sx={{
+            top: -205,
+            right: -330,
+            "& .MuiBadge-badge": {
+              width: 48,
+              height: 48,
+              borderRadius: "100%",
+            },
+          }}
+        ></Badge>
+        <img src={imgSrc} alt="" className="card_banner" />
       </Box>
+      {/* <Badge badgeContent={<FavoriteIcon sx={{ color: " #DBE2E5" }} />} /> */}
       <Box>
         <Typography
           sx={{ fontSize: "1.5rem", fontWeight: 600, lineHeight: 1.2 }}
