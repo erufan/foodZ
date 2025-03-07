@@ -28,6 +28,16 @@ const typography: TypographyOptions = {
     "Helvetica Neue",
     "sans-serif",
   ].join(","),
+
+  h1: {
+    fontSize: "4rem",
+    fontWeight: 600,
+    color: "#000",
+  },
+
+  body1: {
+    color: "rgba(0,0,0,60%)",
+  },
 };
 
 const muiTheme = createTheme({
