@@ -38,6 +38,12 @@ const typography: TypographyOptions = {
   body1: {
     color: "rgba(0,0,0,60%)",
   },
+
+  subtitle1: {
+    color: "rgba(0,0,0,60%)",
+    fontSize: "0.875rem",
+    fontWeight: 500,
+  },
 };
 
 const muiTheme = createTheme({
