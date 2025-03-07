@@ -35,7 +35,7 @@ const Card = () => {
             },
           }}
         ></Badge>
-        <img src={imgSrc} alt="" className="card_banner" />
+        <img src={imgSrc} alt="" className="img img_card" />
       </Box>
       {/* <Badge badgeContent={<FavoriteIcon sx={{ color: " #DBE2E5" }} />} /> */}
       <Box>
