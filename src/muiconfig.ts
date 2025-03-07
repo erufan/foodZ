@@ -43,6 +43,7 @@ const typography: TypographyOptions = {
 const muiTheme = createTheme({
   palette,
   typography,
+  components: { MuiContainer: { defaultProps: { maxWidth: "lg" } } },
 });
 
 export default muiTheme;
